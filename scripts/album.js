@@ -29,6 +29,23 @@
          { title: 'Wrong phone number', duration: '2:15'}
      ]
  };
+
+// The Best Example
+ var albumTrump = {
+     title: 'The Best Album',
+     artist: 'T_D',
+     label: 'Breitbart',
+     year: '2017',
+     albumArtUrl: 'assets/images/album_covers/01.png',
+     songs: [
+         { title: 'Bigly', duration: '4:26' },
+         { title: 'The Best', duration: '3:14' },
+         { title: 'Lock Her Up', duration: '5:01' },
+         { title: 'Emails', duration: '3:21'},
+         { title: 'For fucks sake', duration: '2:15'}
+     ]
+ };
+ 
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -64,4 +81,14 @@
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+     
+     var albums = [albumMarconi, albumPicasso, albumTrump];
+     var index = 1;
+     albumImage.addEventListener("click", function(event) {
+        setCurrentAlbum(albums[index]);
+        index++;
+        if (index == albums.length) {
+            index = 0;
+        }
+     });                        
  };
